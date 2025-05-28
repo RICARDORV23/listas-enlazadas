@@ -3,37 +3,37 @@
 
 using namespace std;
 
-// Definici髇 del nodo de la lista enlazada
+
 class Estudiante {
 public:
     string nombre;
     string materia;
     Estudiante* siguiente;
 
-    // Constructor para inicializar el estudiante
+   
     Estudiante() {
         nombre = "";
         materia = "";
-        siguiente = NULL;  // Usando NULL en lugar de nullptr
+        siguiente = NULL;  
     }
 
-    // Constructor con par醡etros
+    
     Estudiante(const string& nombre, const string& materia) {
         this->nombre = nombre;
         this->materia = materia;
-        this->siguiente = NULL;  // Usando NULL en lugar de nullptr
+        this->siguiente = NULL;  
     }
 };
 
-// Funci髇 para registrar un nuevo estudiante en la lista de inscripciones
+
 void registrarEstudiante(Estudiante*& cabeza, const string& nombre, const string& materia) {
     Estudiante* nuevoEstudiante = new Estudiante(nombre, materia);
 
     if (cabeza == NULL) {
-        cabeza = nuevoEstudiante; // Lista vac韆
+        cabeza = nuevoEstudiante; 
     } else {
         Estudiante* temp = cabeza;
-        while (temp->siguiente != NULL) {  // Usando NULL en lugar de nullptr
+        while (temp->siguiente != NULL) { 
             temp = temp->siguiente;
         }
         temp->siguiente = nuevoEstudiante;
@@ -42,7 +42,7 @@ void registrarEstudiante(Estudiante*& cabeza, const string& nombre, const string
     cout << "Estudiante registrado: " << nombre << " - " << materia << endl;
 }
 
-// Funci髇 para procesar la inscripci髇 del primer estudiante (FIFO - Cola)
+
 void procesarInscripcion(Estudiante*& cabeza) {
     if (cabeza == NULL) {
         cout << "No hay estudiantes inscritos." << endl;
@@ -50,12 +50,12 @@ void procesarInscripcion(Estudiante*& cabeza) {
     }
 
     Estudiante* temp = cabeza;
-    cout << "Procesando inscripci髇 de: " << temp->nombre << " - " << temp->materia << endl;
+    cout << "Procesando inscripci贸n de: " << temp->nombre << " - " << temp->materia << endl;
     cabeza = cabeza->siguiente;
     delete temp;
 }
 
-// Funci髇 para mostrar la lista de estudiantes inscritos
+// Funci贸n para mostrar la lista de estudiantes inscritos
 void mostrarInscripciones(Estudiante* cabeza) {
     if (cabeza == NULL) {
         cout << "No hay estudiantes inscritos." << endl;
@@ -71,18 +71,18 @@ void mostrarInscripciones(Estudiante* cabeza) {
 }
 
 int main() {
-    Estudiante* cabeza = NULL; // Lista enlazada vac韆, usando NULL en lugar de nullptr
+    Estudiante* cabeza = NULL; // Lista enlazada vac铆a, usando NULL en lugar de nullptr
 
     int opcion;
     string nombre, materia;
 
     do {
-        cout << "\n--- Sistema de Inscripci髇 a Examenes ---" << endl;
+        cout << "\n--- Sistema de Inscripci贸n a Examenes ---" << endl;
         cout << "1. Registrar estudiante" << endl;
-        cout << "2. Procesar inscripci髇" << endl;
+        cout << "2. Procesar inscripci贸n" << endl;
         cout << "3. Mostrar estudiantes inscritos" << endl;
         cout << "4. Salir" << endl;
-        cout << "Selecciona una opci髇: ";
+        cout << "Selecciona una opci贸n: ";
         cin >> opcion;
         cin.ignore();
 
@@ -104,7 +104,7 @@ int main() {
                 cout << "Saliendo del sistema." << endl;
                 break;
             default:
-                cout << "Opci髇 no v醠ida. Intenta de nuevo." << endl;
+                cout << "Opci贸n no v谩lida. Intenta de nuevo." << endl;
         }
     } while (opcion != 4);
 
